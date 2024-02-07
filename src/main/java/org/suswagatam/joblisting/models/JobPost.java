@@ -1,7 +1,10 @@
 package org.suswagatam.joblisting.models;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.util.Arrays;
 
+@Document(collection = "jobLists")
 public class JobPost {
     private String jobProfile;
     private String jobDescription;
