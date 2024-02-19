@@ -1,4 +1,4 @@
-package org.suswagatam.joblisting;
+package org.suswagatam.joblisting.repository;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.suswagatam.joblisting.models.JobPost;

@@ -3,11 +3,10 @@ package org.suswagatam.joblisting.controller;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.suswagatam.joblisting.JobRepository;
+import org.springframework.web.bind.annotation.*;
+import org.suswagatam.joblisting.repository.JobRepository;
 import org.suswagatam.joblisting.models.JobPost;
+import org.suswagatam.joblisting.repository.SearchRepository;
 import springfox.documentation.annotations.ApiIgnore;
 
 import java.io.IOException;
@@ -21,7 +20,10 @@ public class Controller {
 
     // Spring creates an object for you and handles the things
     @Autowired
-    JobRepository repo;
+    JobRepository jobRepository;
+
+    @Autowired
+    SearchRepository searchRepository;
 
     // when home directory is fetched, this will redirect it to the Swagger UI
     @ApiIgnore
@@ -34,6 +36,16 @@ public class Controller {
     @GetMapping("/posts")
     public List<JobPost> getAllPosts() {
         // uses Spring Data MongoDB to fetch data
-        return repo.findAll();
+        return jobRepository.findAll();
+    }
+
+    @GetMapping("/posts/{text}")
+    public List<JobPost> searchThroughKeyword(@PathVariable String text) {
+        return searchRepository.findByText(text);
+    }
+
+    @PostMapping("/job-post")
+    public JobPost addJob(@RequestBody JobPost post) {
+        return jobRepository.save(post);
     }
 }

@@ -6,37 +6,37 @@ import java.util.Arrays;
 
 @Document(collection = "jobLists")
 public class JobPost {
-    private String jobProfile;
-    private String jobDescription;
-    private int requiredExp;
+    private String profile;
+    private String desc;
+    private int exp;
     private String[] skills;
 
     public JobPost() {
 
     }
 
-    public String getJobProfile() {
-        return jobProfile;
+    public String getProfile() {
+        return profile;
     }
 
-    public void setJobProfile(String jobProfile) {
-        this.jobProfile = jobProfile;
+    public void setProfile(String profile) {
+        this.profile = profile;
     }
 
-    public String getJobDescription() {
-        return jobDescription;
+    public String getDesc() {
+        return desc;
     }
 
-    public void setJobDescription(String jobDescription) {
-        this.jobDescription = jobDescription;
+    public void setDesc(String desc) {
+        this.desc = desc;
     }
 
-    public int getRequiredExp() {
-        return requiredExp;
+    public int getExp() {
+        return exp;
     }
 
-    public void setRequiredExp(int requiredExp) {
-        this.requiredExp = requiredExp;
+    public void setExp(int exp) {
+        this.exp = exp;
     }
 
     public String[] getSkills() {
@@ -50,9 +50,9 @@ public class JobPost {
     @Override
     public String toString() {
         return "JobPost{" +
-                "jobProfile='" + jobProfile + '\'' +
-                ", jobDescription='" + jobDescription + '\'' +
-                ", requiredExp=" + requiredExp +
+                "jobProfile='" + profile + '\'' +
+                ", jobDescription='" + desc + '\'' +
+                ", requiredExp=" + exp +
                 ", skills=" + Arrays.toString(skills) +
                 '}';
     }
